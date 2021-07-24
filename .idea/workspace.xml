@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="61c4ed08-2399-4e85-8365-14d2b0c0bc08" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1vhTY4wAGqhwf6ClPjR1wBGFvrq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.cas" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="CuratorLockTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cas.lock.CuratorLockTest" />
+      <module name="cas-zookeeper.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cas.lock.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DistributeClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cas.zk.DistributeClient" />
+      <module name="cas-zookeeper.main" />
+      <option name="PROGRAM_PARAMETERS" value="hadoop100" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DistributeServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cas.zk.DistributeServer" />
+      <module name="cas-zookeeper.main" />
+      <option name="PROGRAM_PARAMETERS" value="hadoop100" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cas.Main" />
+      <module name="cas-zookeeper.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZkClient.esist" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.cas.zk.ZkClient.esist&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.DistributeClient" />
+      <item itemvalue="Application.DistributeServer" />
+      <item itemvalue="Application.CuratorLockTest" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.ZkClient.esist" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.CuratorLockTest" />
+        <item itemvalue="Application.DistributeServer" />
+        <item itemvalue="Application.DistributeClient" />
+        <item itemvalue="Gradle.ZkClient.esist" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="61c4ed08-2399-4e85-8365-14d2b0c0bc08" name="Default Changelist" comment="" />
+      <created>1627013364753</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1627013364753</updated>
+      <workItem from="1627013367258" duration="10563000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="360" y="222" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1627027897635">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="360" y="222" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1627027897635" />
+    <state x="683" y="272" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1627027770582">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="683" y="272" key="#com.intellij.ide.macro.MacrosDialog/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1627027770582" />
+    <state x="-1190" y="456" width="460" height="256" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1627122743214">
+      <screen x="-1920" y="40" width="1920" height="1080" />
+    </state>
+    <state x="-1190" y="456" width="460" height="256" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/-1920.40.1920.1080/0.0.1792.1120@-1920.40.1920.1080" timestamp="1627122743214" />
+    <state width="490" height="450" key="DebuggerActiveHint" timestamp="1627122964392">
+      <screen x="-1920" y="40" width="1920" height="1080" />
+    </state>
+    <state width="490" height="450" key="DebuggerActiveHint/-1920.40.1920.1080/0.0.1792.1120@-1920.40.1920.1080" timestamp="1627122964392" />
+    <state width="423" height="466" key="DebuggerActiveHint/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1627027915614" />
+    <state width="1878" height="376" key="GridCell.Tab.0.bottom" timestamp="1627124961196">
+      <screen x="-1920" y="40" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="376" key="GridCell.Tab.0.bottom/-1920.40.1920.1080/0.0.1792.1120@-1920.40.1920.1080" timestamp="1627124961196" />
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1627031222383" />
+    <state width="1878" height="376" key="GridCell.Tab.0.center" timestamp="1627124961195">
+      <screen x="-1920" y="40" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="376" key="GridCell.Tab.0.center/-1920.40.1920.1080/0.0.1792.1120@-1920.40.1920.1080" timestamp="1627124961195" />
+    <state width="1750" height="318" key="GridCell.Tab.0.center/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1627031222381" />
+    <state width="1878" height="376" key="GridCell.Tab.0.left" timestamp="1627124961194">
+      <screen x="-1920" y="40" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="376" key="GridCell.Tab.0.left/-1920.40.1920.1080/0.0.1792.1120@-1920.40.1920.1080" timestamp="1627124961194" />
+    <state width="1750" height="318" key="GridCell.Tab.0.left/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1627031222380" />
+    <state width="1878" height="376" key="GridCell.Tab.0.right" timestamp="1627124961196">
+      <screen x="-1920" y="40" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="376" key="GridCell.Tab.0.right/-1920.40.1920.1080/0.0.1792.1120@-1920.40.1920.1080" timestamp="1627124961196" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1627031222382" />
+    <state width="1878" height="376" key="GridCell.Tab.1.bottom" timestamp="1627124961201">
+      <screen x="-1920" y="40" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="376" key="GridCell.Tab.1.bottom/-1920.40.1920.1080/0.0.1792.1120@-1920.40.1920.1080" timestamp="1627124961201" />
+    <state width="1750" height="392" key="GridCell.Tab.1.bottom/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1627027938294" />
+    <state width="1878" height="376" key="GridCell.Tab.1.center" timestamp="1627124961199">
+      <screen x="-1920" y="40" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="376" key="GridCell.Tab.1.center/-1920.40.1920.1080/0.0.1792.1120@-1920.40.1920.1080" timestamp="1627124961199" />
+    <state width="1750" height="392" key="GridCell.Tab.1.center/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1627027938289" />
+    <state width="1878" height="376" key="GridCell.Tab.1.left" timestamp="1627124961197">
+      <screen x="-1920" y="40" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="376" key="GridCell.Tab.1.left/-1920.40.1920.1080/0.0.1792.1120@-1920.40.1920.1080" timestamp="1627124961197" />
+    <state width="1750" height="392" key="GridCell.Tab.1.left/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1627027938288" />
+    <state width="1878" height="376" key="GridCell.Tab.1.right" timestamp="1627124961200">
+      <screen x="-1920" y="40" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="376" key="GridCell.Tab.1.right/-1920.40.1920.1080/0.0.1792.1120@-1920.40.1920.1080" timestamp="1627124961200" />
+    <state width="1750" height="392" key="GridCell.Tab.1.right/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1627027938290" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/cas/zk/DistributeServer.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/cas/zk/Config.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/cas/zk/Config.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Remote">
+        <watch expression="args[0]" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
