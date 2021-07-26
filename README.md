@@ -2,7 +2,7 @@
 
 
 ### 配置环境
-    1、将zoo.cgf的地址修改成
+*1、将zoo.cgf的地址修改成*
 ```bash
 dataDir=/usr/local/zookeeper-3.5.7/zkData
 ```
