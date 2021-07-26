@@ -67,3 +67,314 @@ WatchedEvent state:Closed type:None path:null
 [root@hadoop100 bin]# client_loop: send disconnect: Broken pipe
 
 ```
+
+### zoo.cfg解读
+```bash
+[root@hadoop100 conf]# cat zoo.cfg 
+#The number of milliseconds of each tick
+# 通信心跳时间
+tickTime=2000 
+# The number of ticks that the initial 
+# synchronization phase can take
+initLimit=10
+# The number of ticks that can pass between 
+# sending a request and getting an acknowledgement
+syncLimit=5
+# the directory where the snapshot is stored.
+# do not use /tmp for storage, /tmp here is just 
+# example sakes.
+dataDir=/usr/local/zookeeper-3.5.7/zkData
+# the port at which the clients will connect
+# 客户端连接端口
+clientPort=2181
+# the maximum number of client connections.
+# increase this if you need to handle more clients
+#maxClientCnxns=60
+#
+# Be sure to read the maintenance section of the 
+# administrator guide before turning on autopurge.
+#
+# http://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_maintenance
+#
+# The number of snapshots to retain in dataDir
+#autopurge.snapRetainCount=3
+# Purge task interval in hours
+# Set to "0" to disable auto purge feature
+#autopurge.purgeInterval=1
+```
+
+### 配置myid 
+```bash
+[root@hadoop100 zkData]# vi myid
+[root@hadoop100 zkData]# cat myid 
+2
+```
+[myid3](./src/main/resources/static/myid3.png)
+[myid4](./src/main/resources/static/myid4.png)
+
+### 配置集群
+**在zoo.cfg末尾加如下配置**
+```bash
+#####################cluster##################
+server.2=hadoop100:2888:3888
+server.3=hadoop101:2888:3888
+server.4=hadoop102:2888:3888
+```
+
+### 启动一台zk集群的效果
+```bash
+[root@hadoop100 zookeeper-3.5.7]# bin/zkServer.sh start
+ZooKeeper JMX enabled by default
+Using config: /usr/local/zookeeper-3.5.7/bin/../conf/zoo.cfg
+Starting zookeeper ... STARTED
+[root@hadoop100 zookeeper-3.5.7]# bin/zkServer.sh status
+ZooKeeper JMX enabled by default
+Using config: /usr/local/zookeeper-3.5.7/bin/../conf/zoo.cfg
+Client port found: 2181. Client address: localhost.
+Error contacting service. It is probably not running.
+```
+
+### 再启动一台zk看效果
+```bash
+[root@hadoop100 zookeeper-3.5.7]# bin/zkServer.sh status
+ZooKeeper JMX enabled by default
+Using config: /usr/local/zookeeper-3.5.7/bin/../conf/zoo.cfg
+Client port found: 2181. Client address: localhost.
+Mode: follower 
+```
+```bash
+[root@hadoop102 zookeeper-3.5.7]# bin/zkServer.sh status
+ZooKeeper JMX enabled by default
+Using config: /usr/local/zookeeper-3.5.7/bin/../conf/zoo.cfg
+Client port found: 2181. Client address: localhost.
+Mode: leader
+```
+
+### 启动和停止脚本
+```bash
+[root@hadoop102 bin]# cat zk
+#!/bin/bash
+
+case $1 in
+"start"){
+	for host in hadoop100 hadoop101  hadoop102
+	do
+        echo ================== $host ===================
+            ssh $host "/usr/local/zookeeper-3.5.7/bin/zkServer.sh start"
+	done
+}
+;;
+"stop"){
+        for host in hadoop100 hadoop101  hadoop102
+        do
+        echo ================== $host ===================
+            ssh $host "/usr/local/zookeeper-3.5.7/bin/zkServer.sh start"
+        done
+}
+;;
+"status"){
+        for host in hadoop100 hadoop101  hadoop102
+        do
+        echo ================== $host ===================
+            ssh $host "/usr/local/zookeeper-3.5.7/bin/zkServer.sh start"
+        done
+}
+;;
+esac
+```
+
+#### 问题1:在使用ssh命令的时候出现了找不到JAVA_HOME的问题
+    通过ssh登陆之后会发现找不到JAVA_HOME ，我的JAVA_HOME是定义在/etc/profile 里面的。
+    
+    研究后发现远程登录和直接登录执行的文件是不一样的：
+    
+    /etc/profile: 当用户登录时,该文件被执行.
+    /etc/bashrc: 当bash shell被打开时,该文件被执行.
+    ssh作为远程登录的方式进入，当然就无法触发/etc/profile的执行，所以会发生找不到JAVA_HOME的问题，所以需要将java的配置信息配置到bashrc的文件中去，配置步骤如下所示：
+    
+    .bashrc是一个隐藏的文件，要打开并修改该文件需要：
+    
+    (1) 命令 vim ~/.bashrc 进入到文件；
+    
+    (2) 直接按 i 键可以对文件进行修改， Esc + ：+ wq退出并保存修改之后的文件
+    
+    (3) 命令 ：source ~/.bashrc 更新 .bashrc
+    
+    对该文件进行修改保存后，在执行相关的操作，就不会发生如上的问题啦。
+    
+#### 节点类型
+    持久(Persistent): 客户端和服务端断开连接后，创建的节点不会删除。
+    短暂(Ephemeral): 客户端和服务器端断开连接后，创建的节点自己删除
+    
+### 创建节点
+```bash
+[zk: localhost:2181(CONNECTED) 0] ls /
+[zookeeper]
+[zk: localhost:2181(CONNECTED) 1] create /sanguo "diaochao"
+Created /sanguo
+[zk: localhost:2181(CONNECTED) 2] ls /
+[sanguo, zookeeper]
+[zk: localhost:2181(CONNECTED) 3] create /sanguo/shuguo "liubei"
+Created /sanguo/shuguo
+[zk: localhost:2181(CONNECTED) 4] ls /
+[sanguo, zookeeper]
+[zk: localhost:2181(CONNECTED) 5] ls /sanguo/
+Path must not end with / character
+[zk: localhost:2181(CONNECTED) 6] ls /sanguo
+[shuguo]
+[zk: localhost:2181(CONNECTED) 7] get -s /sanguo
+diaochao
+cZxid = 0x300000002
+ctime = Fri Jul 23 00:24:28 CST 2021
+mZxid = 0x300000002
+mtime = Fri Jul 23 00:24:28 CST 2021
+pZxid = 0x300000003
+cversion = 1
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 8
+numChildren = 1
+[zk: localhost:2181(CONNECTED) 8] 
+```
+
+### 创建带序号的节点
+**带序号可以重复创建 [create -s ...]**
+```bash
+[zk: localhost:2181(CONNECTED) 8] create /sanguo/weiguo "caocao"
+Created /sanguo/weiguo
+[zk: localhost:2181(CONNECTED) 9] create -s /sanguo/weiguo/zhangliao "zhangliao"
+Created /sanguo/weiguo/zhangliao0000000000
+[zk: localhost:2181(CONNECTED) 10] create -s /sanguo/weiguo/zhangliao "zhangliao"
+Created /sanguo/weiguo/zhangliao0000000001
+[zk: localhost:2181(CONNECTED) 11] 
+[zk: localhost:2181(CONNECTED) 11] create -s /sanguo/weiguo/zhangliao "zhangliao"
+Created /sanguo/weiguo/zhangliao0000000002
+[zk: localhost:2181(CONNECTED) 12] ls /sanguo/weiguo
+[zhangliao0000000000, zhangliao0000000001, zhangliao0000000002]
+[zk: localhost:2181(CONNECTED) 13] 
+```
+
+### 创建临时节点
+**临时节点客户端关闭会自动删除[create -e ...]**
+```bash
+[zk: localhost:2181(CONNECTED) 5] create -e /sanguo/wuguo "zhouyu"
+Created /sanguo/wuguo
+[zk: localhost:2181(CONNECTED) 6] ls /sanguo
+[shuguo, weiguo, wuguo]
+[zk: localhost:2181(CONNECTED) 7] create -e -s /sanguo/wuguo "zhouyu"
+Created /sanguo/wuguo0000000003
+[zk: localhost:2181(CONNECTED) 8] create -e -s /sanguo/wuguo "zhouyu"
+Created /sanguo/wuguo0000000004
+[zk: localhost:2181(CONNECTED) 9] create -e -s /sanguo/wuguo "zhouyu"
+Created /sanguo/wuguo0000000005
+[zk: localhost:2181(CONNECTED) 10] ls /sanguo/wuguo
+[]
+[zk: localhost:2181(CONNECTED) 11] ls /sanguo
+[shuguo, weiguo, wuguo, wuguo0000000003, wuguo0000000004, wuguo0000000005]
+[zk: localhost:2181(CONNECTED) 12] 
+```
+
+### 修改节点数据值
+```bash
+[zk: localhost:2181(CONNECTED) 12] get -s /sanguo/wuguo
+zhouyu
+cZxid = 0x30000000a
+ctime = Fri Jul 23 01:10:07 CST 2021
+mZxid = 0x30000000a
+mtime = Fri Jul 23 01:10:07 CST 2021
+pZxid = 0x30000000a
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x400005323470001
+dataLength = 6
+numChildren = 0
+[zk: localhost:2181(CONNECTED) 13] set /sanguo/wuguo "xianglong"
+[zk: localhost:2181(CONNECTED) 14] get -s /sanguo/wuguo
+xianglong
+cZxid = 0x30000000a
+ctime = Fri Jul 23 01:10:07 CST 2021
+mZxid = 0x30000000e
+mtime = Fri Jul 23 01:13:29 CST 2021
+pZxid = 0x30000000a
+cversion = 0
+dataVersion = 1
+aclVersion = 0
+ephemeralOwner = 0x400005323470001
+dataLength = 9
+numChildren = 0
+[zk: localhost:2181(CONNECTED) 15] 
+```
+
+### 监控数据变化 [get -w ...]
+**注册一次监控一次，要再想监控需要再注册**
+*监控数据*
+```bash
+[zk: localhost:2181(CONNECTED) 0] get -w /sanguo
+xishi
+[zk: localhost:2181(CONNECTED) 1] 
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDataChanged path:/sanguo
+```
+
+*改变数据*
+```bash
+[zk: localhost:2181(CONNECTED) 0] set /sanguo "caocao"
+```
+
+### 监控节点变化[ls -w ...]
+*监控节点*
+```bash
+[zk: localhost:2181(CONNECTED) 1] ls -w /sanguo
+[shuguo, weiguo]
+[zk: localhost:2181(CONNECTED) 2] 
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeChildrenChanged path:/sanguo
+```
+*改变节点*
+```bash
+[zk: localhost:2181(CONNECTED) 1] create -e /sanguo/jin "lvbu"
+Created /sanguo/jin
+```
+
+### 删除节点
+```bash
+[zk: localhost:2181(CONNECTED) 6] delete /sanguo/jin
+[zk: localhost:2181(CONNECTED) 7] ls /sanguo
+[jin1, shuguo, weiguo]
+[zk: localhost:2181(CONNECTED) 8] deleteall /sanguo
+[zk: localhost:2181(CONNECTED) 9] ls /
+[zookeeper]
+[zk: localhost:2181(CONNECTED) 10] 
+```
+
+### 分布式锁
+    原理：
+    1、节点序列号最小的获取到锁
+    2、未获取到锁的监控上一个节点，上一个节点删除获取到锁
+[分布式锁图](./src/main/resources/static/fenbushi.png)
+
+#### 面试1:选举机制
+    半数机制，超过半数的投票通过，即通过
+    1、第一次启动选举规则：
+    投票过半数时，服务器id大的胜出
+    2、第二次启动选举规则
+    1⃣️EPOCH 大的直接胜出
+    2⃣️EPOCH 相同，事物id大的胜出
+    3⃣️事务id相同，服务器id大的胜出
+
+#### 面试2:生产集群安装多少zk合适？
+    安装奇数台
+    生产经验：
+    10台服务器：3台zk
+    20台服务器：5台zk
+    100台服务器：11台zk
+    200台服务器：11台zk
+
+## 常用命令
+    get ls create delete 
+
+
