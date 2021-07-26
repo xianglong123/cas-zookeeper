@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61c4ed08-2399-4e85-8365-14d2b0c0bc08" name="Default Changelist" comment="" />
+    <list default="true" id="61c4ed08-2399-4e85-8365-14d2b0c0bc08" name="Default Changelist" comment="+ init">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +34,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1vhTY4wAGqhwf6ClPjR1wBGFvrq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -153,11 +159,25 @@
       <option name="presentableId" value="Default" />
       <updated>1627013364753</updated>
       <workItem from="1627013367258" duration="10563000" />
+      <workItem from="1627125035414" duration="102000" />
+      <workItem from="1627212658448" duration="16000" />
     </task>
+    <task id="LOCAL-00001" summary="+ init">
+      <created>1627125109316</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1627125109316</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="+ init" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ init" />
   </component>
   <component name="WindowStateProjectService">
     <state x="360" y="222" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1627027897635">
@@ -177,6 +197,14 @@
     </state>
     <state width="490" height="450" key="DebuggerActiveHint/-1920.40.1920.1080/0.0.1792.1120@-1920.40.1920.1080" timestamp="1627122964392" />
     <state width="423" height="466" key="DebuggerActiveHint/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1627027915614" />
+    <state x="-1108" y="484" width="555" height="283" key="Github.ShareDialog" timestamp="1627125052632">
+      <screen x="-1920" y="40" width="1920" height="1080" />
+    </state>
+    <state x="-1108" y="484" width="555" height="283" key="Github.ShareDialog/-1920.40.1920.1080/0.0.1792.1120@-1920.40.1920.1080" timestamp="1627125052632" />
+    <state x="-1225" y="285" key="Github.UntrackedFilesDialog" timestamp="1627125062537">
+      <screen x="-1920" y="40" width="1920" height="1080" />
+    </state>
+    <state x="-1225" y="285" key="Github.UntrackedFilesDialog/-1920.40.1920.1080/0.0.1792.1120@-1920.40.1920.1080" timestamp="1627125062537" />
     <state width="1878" height="376" key="GridCell.Tab.0.bottom" timestamp="1627124961196">
       <screen x="-1920" y="40" width="1920" height="1080" />
     </state>
@@ -217,6 +245,10 @@
     </state>
     <state width="1878" height="376" key="GridCell.Tab.1.right/-1920.40.1920.1080/0.0.1792.1120@-1920.40.1920.1080" timestamp="1627124961200" />
     <state width="1750" height="392" key="GridCell.Tab.1.right/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1627027938290" />
+    <state x="-1360" y="320" key="Vcs.Push.Dialog.v2" timestamp="1627125111820">
+      <screen x="-1920" y="40" width="1920" height="1080" />
+    </state>
+    <state x="-1360" y="320" key="Vcs.Push.Dialog.v2/-1920.40.1920.1080/0.0.1792.1120@-1920.40.1920.1080" timestamp="1627125111820" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
